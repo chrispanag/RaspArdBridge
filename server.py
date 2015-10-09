@@ -15,6 +15,7 @@ while (1):
   send = input()
   ser.write(send)
   bytes = ser.inWaiting()
+  ser.flushInput()
   if (bytes > 0):
     msg = ser.readline()
     print msg
