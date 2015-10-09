@@ -10,13 +10,13 @@ s.bind((host, port))
 s.listen(5)
 
 while (1):
+  ser.flushInput()
+  ser.flushOutput()
   send = input()
   ser.write(send)
   bytes = ser.inWaiting()
   if (bytes > 0):
-    msg = ser.read(bytes)
-    ser.flushInput()
-    ser.flushOutput()
+    msg = ser.readline()
     print msg
   #c, addr = s.accept()
   #print 'Got connection from', addr
