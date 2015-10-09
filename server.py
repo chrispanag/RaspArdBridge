@@ -1,5 +1,6 @@
 import socket
 import serial
+from time import sleep
 
 ser = serial.Serial('/dev/ttyACM0', 9600)
 s = socket.socket()
@@ -14,8 +15,8 @@ while (1):
   ser.flushOutput()
   send = input()
   ser.write(send)
+  time.sleep(0.1)
   bytes = ser.inWaiting()
-  ser.flushInput()
   if (bytes > 0):
     msg = ser.readline()
     print msg
