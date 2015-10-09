@@ -12,12 +12,14 @@ s.listen(5)
 while (1):
   send = input()
   ser.write(send)
-  msg = ser.readline()
-  c, addr = s.accept()
-  print 'Got connection from', addr
-  msg = ser.readline()
-  send = input()
-  ser.write(send)
-  msg = c.receive()
-  c.send(msg)
-  c.close()
+  if (ser.inWaiting() > 0):
+    msg = ser.readline()
+    print msg
+  #c, addr = s.accept()
+  #print 'Got connection from', addr
+  #msg = ser.readline()
+  #send = input()
+  #ser.write(send)
+  #msg = c.receive()
+  #c.send(msg)
+  #c.close()
