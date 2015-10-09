@@ -10,9 +10,9 @@ s.bind((host, port))
 s.listen(5)
 
 while (1):
-  msg = ser.readline()
   send = input()
   ser.write(send)
+  msg = ser.readline()
   c, addr = s.accept()
   print 'Got connection from', addr
   msg = ser.readline()
