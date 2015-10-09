@@ -15,6 +15,8 @@ while (1):
   bytes = ser.inWaiting()
   if (bytes > 0):
     msg = ser.read(bytes)
+    ser.flushInput()
+    ser.flushOutput()
     print msg
   #c, addr = s.accept()
   #print 'Got connection from', addr
