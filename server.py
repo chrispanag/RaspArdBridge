@@ -12,8 +12,9 @@ s.listen(5)
 while (1):
   send = input()
   ser.write(send)
-  if (ser.inWaiting() > 0):
-    msg = ser.readline()
+  bytes = ser.inWaiting()
+  if (bytes > 0):
+    msg = ser.read(bytes)
     print msg
   #c, addr = s.accept()
   #print 'Got connection from', addr
